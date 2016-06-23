@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>사용자 정보 수정</title>
+
+    <!-- Mustache -->
+    <script type="text/javascript" src="/webjars/mustachejs/2.2.1/mustache.js/"></script>
+</head>
+<body>
+    <h3>사용자 정보 수정</h3>
+    <form>
+        <div id="userArticle" data-user-uid="{{userUid}}"></div>
+            <p>
+                <span>이메일 :</span>
+                <input type="text" id="userEmail">
+            </p>
+            <p>
+                <span>이름 :</span>
+                <input type="text" id="userName">
+            </p>
+            <p>
+                <button type="button" id="updateUserBtn">수정</button>
+            </p>
+            <p id="msg"></p>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="/js/core/user/user_edit.js"></script>
+    <script type="text/javascript">
+        (function() {
+            userEditInit();
+        })();
+    </script>
+</body>
+</html>

@@ -2,13 +2,13 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>사용자 목록</title>
+    <title>사용자 정보</title>
     <style>
-        table, th, td {
+        table, td {
             border: 1px solid black;
             border-collapse: collapse;
         }
-        th, td {
+        td {
             padding: 5px;
             text-align: left;
         }
@@ -18,13 +18,13 @@
     <script type="text/javascript" src="/webjars/mustachejs/2.2.1/mustache.js/"></script>
 </head>
 <body>
-    <h3>사용자 목록</h3>
-    <div id="usersArticle"></div>
+    <h3>사용자 정보</h3>
+    <div id="userArticle" data-user-uid="{{userUid}}"></div>
 
-    <script type="text/javascript" src="/js/core/user/users.js"></script>
-    <script>
-        (function(){
-            usersInit();
+    <script type="text/javascript" src="/js/core/user/user.js"></script>
+    <script type="text/javascript">
+        (function() {
+            userInit();
         })();
     </script>
 </body>
