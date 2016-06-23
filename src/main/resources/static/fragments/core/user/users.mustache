@@ -3,6 +3,7 @@
         <tr>
             <th>이름</th>
             <th>이메일</th>
+            <th>수정/삭제</th>
         </tr>
     </thead>
     <tbody>
@@ -10,6 +11,7 @@
         <tr>
             <td>{{userName}}</td>
             <td>{{userEmail}}</td>
+            <td><a href="#" class="_deleteUserBtn" data-user-uid="{{uid}}">삭제</a></td>
         </tr>
         {{/users}}
     </tbody>
