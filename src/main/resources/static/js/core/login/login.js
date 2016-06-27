@@ -4,6 +4,7 @@ var loginInit = function () {
 
 var bind = function () {
   document.getElementById("submitLoginBtn").addEventListener("click", submitLogin);
+  document.getElementById("submitLogoutBtn").addEventListener("click", submitLogout);
 };
 
 var submitLogin = function () {
@@ -26,6 +27,31 @@ var submitLogin = function () {
       response = JSON.parse(xhr.response);
       document.getElementById("msg").innerText = response.userName + "님 이 로그인 하였습니다.";
       console.log(response);
+
+    } else {
+      response = JSON.parse(xhr.response);
+      document.getElementById("msg").innerText = response.status + " : " + response.message;
+      console.log(response.status + " : " + response.message);
+    }
+  };
+
+  xhr.onerror = function () {
+    document.getElementById("msg").innerText = "http://localhost:8081/rest/login 서버가 연결되지 않습니다.";
+  };
+};
+
+var submitLogout = function () {
+  var xhr, response;
+
+  xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://localhost:8081/rest/logout", true);
+  xhr.withCredentials = true;
+
+  xhr.send();
+
+  xhr.onload = function () {
+    if(xhr.status == "200") {
+      document.getElementById("msg").innerText = "로그아웃 하였습니다.";
 
     } else {
       response = JSON.parse(xhr.response);
