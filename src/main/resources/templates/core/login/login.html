@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+    <h3>로그인</h3>
+    <div>
+        <p>
+            <span>이메일 :</span>
+            <input type="text" id="userEmail" value="antman@cocotask.com">
+        </p>
+        <p>
+            <span>비밀번호 :</span>
+            <input type="password" id="password" value="1234">
+        </p>
+        <p>
+            <button type="button" id="submitLoginBtn">로그인</button>
+        </p>
+        <p id="msg"></p>
+    </div>
+
+    <script type="text/javascript" src="/js/core/session/session.js"></script>
+    <script type="text/javascript" src="/js/core/login/login.js"></script>
+    <script type="text/javascript">
+        (function() {
+            loginInit();
+        })();
+    </script>
+</body>
+</html>
