@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <title>사용자 정보 수정</title>
 
-    <!-- Mustache -->
+    <!-- javascript library -->
     <script type="text/javascript" src="/webjars/mustachejs/2.2.1/mustache.js/"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/core/layout/layout.css">
+
+    <!-- layout -->
+    <link rel="import" id="layout_contents" href="/fragments/core/layout/layout.html">
 </head>
 <body>
-    <h3>사용자 정보 수정</h3>
-    <form>
-        <div id="userArticle" data-user-uid="{{userUid}}"></div>
-            <p>
-                <span>이메일 :</span>
-                <input type="text" id="userEmail">
-            </p>
-            <p>
-                <span>이름 :</span>
-                <input type="text" id="userName">
-            </p>
-            <p>
-                <button type="button" id="updateUserBtn">수정</button>
-            </p>
-            <p id="msg"></p>
-        </div>
-    </form>
+    <header></header>
+    <nav></nav>
+    <section>
+        <h3>사용자 정보 수정</h3>
+        <form>
+            <div id="userArticle" data-user-uid="{{userUid}}"></div>
+                <p>
+                    <span>이메일 :</span>
+                    <input type="text" id="userEmail">
+                </p>
+                <p>
+                    <span>이름 :</span>
+                    <input type="text" id="userName">
+                </p>
+                <p>
+                    <button type="button" id="updateUserBtn">수정</button>
+                </p>
+                <p id="msg"></p>
+            </div>
+        </form>
+    </section>
 
+    <!-- javascript module -->
+    <script type="text/javascript" src="/js/core/layout/layout.js"></script>
     <script type="text/javascript" src="/js/core/user/user_edit.js"></script>
     <script type="text/javascript">
         (function() {

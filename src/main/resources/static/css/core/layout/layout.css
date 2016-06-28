@@ -1,0 +1,20 @@
+.nav_section {
+    margin: 10px 0px 0px 10px
+}
+
+.nav_section > span {
+    margin: 0px 5px 0px 0px
+}
+
+.header_section > .cocotask{
+    margin: 0px 10px 0px 10px
+}
+
+.header_section > .search{
+
+}
+
+.header_section > .user{
+    margin: 0px 50px 0px 10px;
+    float:right
+}

@@ -3,28 +3,42 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>사용자 추가</title>
+
+    <!-- javascript library -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/core/layout/layout.css">
+
+    <!-- layout -->
+    <link rel="import" id="layout_contents" href="/fragments/core/layout/layout.html">
 </head>
 <body>
-    <form>
-        <h2>사용자 추가</h2>
-        <div>
-            <p>
-                <span>이메일 :</span>
-                <input type="text" id="userEmail">
-            </p>
-            <p>
-                <span>이름 :</span>
-                <input type="text" id="userName">
-            </p>
-            <p>
-                <button type="button" id="submitUserBtn">추가</button>
-            </p>
-            <p id="msg"></p>
-        </div>
-    </form>
+    <header></header>
+    <nav></nav>
+    <section>
+        <form>
+            <h2>사용자 추가</h2>
+            <div>
+                <p>
+                    <span>이메일 :</span>
+                    <input type="text" id="userEmail">
+                </p>
+                <p>
+                    <span>이름 :</span>
+                    <input type="text" id="userName">
+                </p>
+                <p>
+                    <button type="button" id="submitUserBtn">추가</button>
+                </p>
+                <p id="msg"></p>
+            </div>
+        </form>
+    </section>
 
+    <!-- javascript module -->
+    <script type="text/javascript" src="/js/core/layout/layout.js"></script>
     <script type="text/javascript" src="/js/core/user/user_new.js"></script>
-    <script>
+    <script type="text/javascript">
         (function(){
             userAddInit();
         })();

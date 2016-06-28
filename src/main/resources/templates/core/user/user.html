@@ -3,24 +3,27 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>사용자 정보</title>
-    <style>
-        table, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        td {
-            padding: 5px;
-            text-align: left;
-        }
-    </style>
 
-    <!-- Mustache -->
+    <!-- javascript library -->
     <script type="text/javascript" src="/webjars/mustachejs/2.2.1/mustache.js/"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/core/layout/layout.css">
+    <link rel="stylesheet" href="/css/core/user/users.css">
+
+    <!-- layout -->
+    <link rel="import" id="layout_contents" href="/fragments/core/layout/layout.html">
 </head>
 <body>
-    <h3>사용자 정보</h3>
-    <div id="userArticle" data-user-uid="{{userUid}}"></div>
+    <header></header>
+    <nav></nav>
+    <section>
+        <h3>사용자 정보</h3>
+        <div id="userArticle" data-user-uid="{{userUid}}"></div>
+    </section>
 
+    <!-- javascript module -->
+    <script type="text/javascript" src="/js/core/layout/layout.js"></script>
     <script type="text/javascript" src="/js/core/user/user.js"></script>
     <script type="text/javascript">
         (function() {
