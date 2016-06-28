@@ -2,12 +2,14 @@ var usersInit = function() {
   readUsers();
 };
 
-var bind = function () {
-  var rows = document.getElementsByClassName("_deleteUserBtn");
+var gotoReadUser = function () {
+  var userUid = this.dataset.userUid;
+  location.href = "http://localhost:8080/web/users/" + userUid;
+};
 
-  for (var i = 0; i < rows.length; i++) {
-    rows[i].addEventListener("click", deleteUser);
-  }
+var gotoUpdateUser = function () {
+  var userUid = this.dataset.userUid;
+  location.href = "http://localhost:8080/web/users/" + userUid + "/edit";
 };
 
 var deleteUser = function () {
@@ -63,5 +65,23 @@ var showUsers = function(data) {
 
       bind();
     }
+  }
+};
+
+var bind = function () {
+  var readRows = document.getElementsByClassName("_readUserBtn");
+  var updateRows = document.getElementsByClassName("_updateUserBtn");
+  var deleteRows = document.getElementsByClassName("_deleteUserBtn");
+
+  for (var i = 0; i < readRows.length; i++) {
+    readRows[i].addEventListener("click", gotoReadUser);
+  }
+
+  for (var i = 0; i < updateRows.length; i++) {
+    updateRows[i].addEventListener("click", gotoUpdateUser);
+  }
+
+  for (var i = 0; i < deleteRows.length; i++) {
+    deleteRows[i].addEventListener("click", deleteUser);
   }
 };

@@ -9,9 +9,12 @@
     <tbody>
         {{#users}}
         <tr>
-            <td>{{userName}}</td>
+            <td><a href="#" class="_readUserBtn" data-user-uid="{{uid}}">{{userName}}</a></td>
             <td>{{userEmail}}</td>
-            <td><a href="#" class="_deleteUserBtn" data-user-uid="{{uid}}">삭제</a></td>
+            <td>
+                <a href="#" class="_updateUserBtn" data-user-uid="{{uid}}">수정</a>
+                <a href="#" class="_deleteUserBtn" data-user-uid="{{uid}}">삭제</a>
+            </td>
         </tr>
         {{/users}}
     </tbody>
