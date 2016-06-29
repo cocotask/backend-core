@@ -3,7 +3,7 @@ var session = function () {
     var xhr, response;
 
     xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8080/web/session", true);
+    xhr.open("GET", webServer.getSessionUrl(), true);
 
     xhr.send();
 
@@ -23,7 +23,7 @@ var session = function () {
     var xhr, response;
 
     xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8081/rest/session", true);
+    xhr.open("GET", restServer.getSessionUrl(), true);
     xhr.withCredentials = true;
 
     xhr.send();
