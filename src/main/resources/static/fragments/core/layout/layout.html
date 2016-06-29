@@ -2,7 +2,20 @@
     <div class="header_section">
         <span class="cocotask"><a href="/web">Cocotask</a></span>
         <span class="search"><input type="text" placeholder="Search a Paper"></span>
-        <span class="user">LoginUser</span>
+        <span class="user">
+            <span>LoginUser</span>
+            <span>
+                <button type="button" id="login">로그인</button>
+                <button type="button" id="logout">로그아웃</button>
+            </span>
+        </span>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">x</span>
+                <p id="login_contents"></p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -12,3 +25,6 @@
         <span><a href="/web/users">사용자 목록</a></span>
     </div>
 </div>
+
+<script type="text/javascript" src="/js/core/common/serverInfo.js"></script>
+<script type="text/javascript" src="/js/core/login/login.js"></script>
