@@ -8,8 +8,8 @@ var login = function () {
     var xhr, login, response;
 
     login = {
-      userEmail: document.getElementById("userEmail").value,
-      password: document.getElementById("password").value
+      userEmail: document.getElementById("loginSession_userEmail").value,
+      password: document.getElementById("loginSession_password").value
     };
 
     xhr = new XMLHttpRequest();
