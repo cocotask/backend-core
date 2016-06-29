@@ -1,6 +1,6 @@
 var session = function () {
   var getSessionWeb = function () {
-    var xhr, response;
+    var xhr;
 
     xhr = new XMLHttpRequest();
     xhr.open("GET", webServer.getSessionUrl(), true);
@@ -10,17 +10,19 @@ var session = function () {
     xhr.onload = function () {
       if(xhr.status == "200") {
         console.log("web :" + xhr.responseText);
-        response = JSON.parse(xhr.response);
+
+        return JSON.parse(xhr.response);
 
       } else {
-        response = JSON.parse(xhr.response);
-        console.log(response.status + " : " + response.message);
+        console.log(JSON.parse(xhr.response));
+
+        return JSON.parse(xhr.response);
       }
     };
   };
 
-  var getSessionRest = function () {
-    var xhr, response;
+  var getSessionRest = function (callback) {
+    var xhr;
 
     xhr = new XMLHttpRequest();
     xhr.open("GET", restServer.getSessionUrl(), true);
@@ -28,24 +30,16 @@ var session = function () {
 
     xhr.send();
 
-    xhr.onload = function () {
-      if(xhr.status == "200") {
-        console.log("rest :" + xhr.responseText);
-        response = JSON.parse(xhr.response);
-
-      } else {
-        response = JSON.parse(xhr.response);
-        console.log(response.status + " : " + response.message);
-      }
-    };
+    callback(xhr);
   };
 
   return {
     getSessionWeb: function () {
       getSessionWeb();
     },
-    getSessionRest: function () {
-      getSessionRest();
+
+    getSessionRest: function (callback) {
+      getSessionRest(callback);
     }
   }
 }();

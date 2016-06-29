@@ -48,9 +48,39 @@ var layout = function() {
     }
   };
 
+  var showLoginMsgFromSession = function () {
+    session.getSessionRest(showLoginMsg);
+
+    function showLoginMsg(xhr) {
+      var loginMsg = document.getElementById("loginMsg");
+
+      xhr.onload = function () {
+        if(xhr.status == "200") {
+          var user = JSON.parse(xhr.response);
+
+          if (user.userUid == null) {
+            loginMsg.innerText = "login ";
+
+          } else {
+            loginMsg.innerText = user.loginUserName;
+          }
+
+        } else {
+          var response = JSON.parse(xhr.response);
+          loginMsg.innerText = response.error;
+        }
+      };
+
+      xhr.onerror = function() {
+        loginMsg.innerText = restServer.getSessionUrl() + " 서버가 연결되지 않습니다.";
+      }
+    }
+  };
+
   return {
     showHeader : function() {
       showHeader(bindHeader);
+      showLoginMsgFromSession();  //TODO: 페이지 조회시마다 통신문제
     },
 
     showNav : function() {
