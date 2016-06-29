@@ -48,6 +48,7 @@ var layout = function() {
     }
   };
 
+  // TODO: need refactor
   var showLoginMsgFromSession = function () {
     session.getSessionRest(showLoginMsg);
 
