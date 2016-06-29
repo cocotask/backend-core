@@ -9,7 +9,8 @@ var bind = function() {
 var addUser = function() {
   var user = {
     userEmail: document.getElementById("userEmail").value,
-    userName: document.getElementById("userName").value
+    userName: document.getElementById("userName").value,
+    password: document.getElementById("password").value
   };
 
   var xhr = new XMLHttpRequest();
