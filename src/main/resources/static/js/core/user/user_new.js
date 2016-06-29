@@ -13,7 +13,7 @@ var addUser = function() {
   };
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", serverInfo.getUserRestUrl(), true);
+  xhr.open("POST", restServer.getUserUrl(), true);
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.send(JSON.stringify(user));
 

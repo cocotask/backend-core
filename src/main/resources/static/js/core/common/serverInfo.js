@@ -1,22 +1,19 @@
-var serverInfo = function () {
+var webServer = function () {
   var webUrl = "http://localhost:8080/web";
+
+  return {
+    getUrl: function () { return webUrl ; },
+    getUserUrl: function () { return webUrl + "/users" },
+    getLoginUrl: function () { return webUrl + "/login" }
+  }
+}();
+
+var restServer = function () {
   var restUrl = "http://localhost:8081/rest";
 
   return {
-    getWebUrl: function () {
-      return webUrl ;
-    },
-
-    getRestUrl: function () {
-      return restUrl;
-    },
-
-    getUserWebUrl: function () {
-      return webUrl + "/users"
-    },
-
-    getUserRestUrl: function () {
-      return restUrl + "/users"
-    }
+    getUrl: function () { return restUrl; },
+    getUserUrl: function () { return restUrl + "/users" },
+    getLoginUrl: function () { return restUrl + "/login" }
   }
 }();

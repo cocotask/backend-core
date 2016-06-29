@@ -13,7 +13,7 @@ var login = function () {
     };
 
     xhr = new XMLHttpRequest();
-    xhr.open("POST", serverInfo.getRestUrl() + "/login", true);
+    xhr.open("POST", restServer.getLoginUrl(), true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.withCredentials = true;
 
@@ -33,8 +33,7 @@ var login = function () {
     };
 
     xhr.onerror = function () {
-      serverInfo.getRestUrl() + "/login"
-      document.getElementById("msg").innerText = serverInfo.getRestUrl() + "/login 서버가 연결되지 않습니다.";
+      document.getElementById("msg").innerText = restServer.getUrl() + " 서버가 연결되지 않습니다.";
     };
   };
 
@@ -42,7 +41,7 @@ var login = function () {
     var xhr, response;
 
     xhr = new XMLHttpRequest();
-    xhr.open("GET", serverInfo.getRestUrl() + "/logout", true);
+    xhr.open("GET", restServer.getUrl() + "/logout", true);
     xhr.withCredentials = true;
 
     xhr.send();
@@ -59,7 +58,7 @@ var login = function () {
     };
 
     xhr.onerror = function () {
-      document.getElementById("msg").innerText = serverInfo.getRestUrl() + "/logout 서버가 연결되지 않습니다.";
+      document.getElementById("msg").innerText = restServer.getUrl() + " 서버가 연결되지 않습니다.";
     };
   };
 

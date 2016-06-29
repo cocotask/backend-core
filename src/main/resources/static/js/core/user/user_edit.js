@@ -17,7 +17,7 @@ var updateUser = function () {
   userUid = document.getElementById("userArticle").dataset.userUid;
 
   xhr = new XMLHttpRequest();
-  xhr.open("PATCH", serverInfo.getUserRestUrl() + "/" + userUid, true);
+  xhr.open("PATCH", restServer.getUserUrl() + "/" + userUid, true);
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.send(JSON.stringify(user));
 
@@ -45,7 +45,7 @@ var readUser = function () {
   userUid = document.getElementById("userArticle").dataset.userUid;
 
   xhr = new XMLHttpRequest();
-  xhr.open("GET", serverInfo.getUserRestUrl() + "/" + userUid, true);
+  xhr.open("GET", restServer.getUserUrl() + "/" + userUid, true);
   xhr.send();
 
   xhr.onload = function() {
