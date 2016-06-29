@@ -56,13 +56,13 @@ var layout = function() {
 
       xhr.onload = function () {
         if(xhr.status == "200") {
-          var user = JSON.parse(xhr.response);
+          var sessionRest = JSON.parse(xhr.response);
 
-          if (user.userUid == null) {
-            loginMsg.innerText = "login ";
+          if (sessionRest.userUid == null) {
+            showLogoutMsg();
 
           } else {
-            loginMsg.innerText = user.loginUserName;
+            loginMsg.innerText = sessionRest.loginUserName;
           }
 
         } else {
