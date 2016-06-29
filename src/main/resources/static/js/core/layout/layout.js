@@ -1,39 +1,38 @@
 var layout = function() {
-  var showHeader = function () {
-    var headerContents = document.getElementById("layout_contents").import.getElementById("header_section").innerHTML;
+  var importLayoutHtml = document.getElementById("layout_contents").import;
+
+  var showHeader = function (callback) {
+    var headerContents = importLayoutHtml.getElementById("header_section").innerHTML;
 
     document.getElementsByTagName("header")[0].innerHTML = headerContents;
+
+    if (callback !== undefined){
+      callback();
+    }
   };
 
   var showNav = function () {
-    var navContents = document.getElementById("layout_contents").import.getElementById("nav_section").innerHTML;
+    var navContents = importLayoutHtml.getElementById("nav_section").innerHTML;
 
     document.getElementsByTagName("nav")[0].innerHTML = navContents;
   };
 
-  var loginoutBind = function () {
-    document.getElementById("login").addEventListener("click", showModalLogin);
-    document.getElementById("logout").addEventListener("click", logout);
+  var bindHeader = function () {
+    document.getElementById("userInfo").addEventListener("click", showModal);
   };
 
-  var showLoginContents = function () {
-    var xhr, loginContents;
-    xhr = new XMLHttpRequest();
-    xhr.open("GET", webServer.getUrl() + "/login");
-    xhr.send();
-    xhr.onload = function () {
-      var parser, doc;
-      parser = new DOMParser();
-      doc = parser.parseFromString(xhr.responseText, "text/html");
+  var showLoginContents = function (callback) {
+    var modalContent;
 
-      loginContents = document.getElementById("login_contents");
-      loginContents.innerHTML = doc.getElementById("login_section").innerHTML;
+    modalContent = document.getElementById("modal_content");
+    modalContent.innerHTML = importLayoutHtml.getElementById("login_section").innerHTML;
 
-      login.bind();
+    if (callback !== undefined){
+      callback();
     }
   };
 
-  var showModalLogin = function () {
+  var showModal = function () {
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
 
@@ -49,25 +48,21 @@ var layout = function() {
     }
   };
 
-  var logout = function () {
-
-  };
-
   return {
-    showHeaderNav: function() {
-      showHeader();
+    showHeader : function() {
+      showHeader(bindHeader);
+    },
+
+    showNav : function() {
       showNav();
     },
-    showLoginContents : function() {
-      showLoginContents();
-    },
 
-    loginoutBind: function () {
-      loginoutBind();
+    showLoginContents : function(callback) {
+      showLoginContents(callback);
     }
   }
 }();
 
-layout.showHeaderNav();
-layout.showLoginContents();
-layout.loginoutBind();
+layout.showHeader();
+layout.showNav();
+layout.showLoginContents(login.bind);

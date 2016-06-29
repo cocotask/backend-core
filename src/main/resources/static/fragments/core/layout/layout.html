@@ -1,19 +1,20 @@
+<link rel="stylesheet" href="/css/core/layout/layout.css">
+
 <div id="header_section">
     <div class="header_section">
         <span class="cocotask"><a href="/web">Cocotask</a></span>
         <span class="search"><input type="text" placeholder="Search a Paper"></span>
         <span class="user">
-            <span>LoginUser</span>
+            <span id="loginMsg">login Msg</span>
             <span>
-                <button type="button" id="login">로그인</button>
-                <button type="button" id="logout">로그아웃</button>
+                <button type="button" id="userInfo">사용자</button>
             </span>
         </span>
 
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">x</span>
-                <p id="login_contents"></p>
+                <p id="modal_content"></p>
             </div>
         </div>
     </div>
@@ -26,5 +27,25 @@
     </div>
 </div>
 
+<div id="login_section">
+    <div class="login_section">
+        <h3>로그인</h3>
+        <p>
+            <span>이메일 :</span>
+            <input type="text" id="userEmail" value="antman@cocotask.com">
+        </p>
+        <p>
+            <span>비밀번호 :</span>
+            <input type="password" id="password" value="1234">
+        </p>
+        <p id="msg"></p>
+        <p>
+            <button type="button" id="submitLoginBtn">로그인</button>
+            <button type="button" id="submitLogoutBtn">로그아웃</button>
+        </p>
+    </div>
+</div>
+
 <script type="text/javascript" src="/js/core/common/serverInfo.js"></script>
 <script type="text/javascript" src="/js/core/login/login.js"></script>
+<script type="text/javascript" src="/js/core/layout/layout.js"></script>
