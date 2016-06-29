@@ -13,7 +13,7 @@ var addUser = function() {
   };
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:8081/rest/users/", true);
+  xhr.open("POST", serverInfo.getUserRestUrl(), true);
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.send(JSON.stringify(user));
 

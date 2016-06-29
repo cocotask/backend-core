@@ -23,7 +23,7 @@ var users = function () {
     userUid = this.dataset.userUid;
 
     xhr = new XMLHttpRequest();
-    xhr.open("DELETE", "http://localhost:8081/rest/users/" + userUid, true);
+    xhr.open("DELETE", serverInfo.getUserRestUrl() + "/" + userUid, true);
     xhr.send();
 
     xhr.onload = function() {
@@ -41,7 +41,7 @@ var users = function () {
     var xhr, response;
     xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "http://localhost:8081/rest/users", true);
+    xhr.open("GET", serverInfo.getUserRestUrl(), true);
     xhr.send();
 
     xhr.onload = function() {
@@ -77,12 +77,12 @@ var users = function () {
 
   var gotoReadUser = function () {
     var userUid = this.dataset.userUid;
-    location.href = "http://localhost:8080/web/users/" + userUid;
+    location.href = serverInfo.getUserWebUrl() + "/" + userUid;
   };
 
   var gotoUpdateUser = function () {
     var userUid = this.dataset.userUid;
-    location.href = "http://localhost:8080/web/users/" + userUid + "/edit";
+    location.href = serverInfo.getUserWebUrl() + "/" + userUid + "/edit";
   };
 
   return {

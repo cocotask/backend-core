@@ -23,7 +23,7 @@ var readUser = function () {
   userUid = document.getElementById("userArticle").dataset.userUid;
 
   xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:8081/rest/users/" + userUid, true);
+  xhr.open("GET", serverInfo.getUserRestUrl() + "/" + userUid, true);
   xhr.send();
 
   xhr.onload = function() {
