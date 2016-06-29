@@ -23,11 +23,13 @@ var login = function () {
       if(xhr.status == "200") {
         response = JSON.parse(xhr.response);
         document.getElementById("msg").innerText = response.userName + "님 이 로그인 하였습니다.";
-        console.log(response);
+
+        layout.showLoginMsgFromSession();
 
       } else {
         response = JSON.parse(xhr.response);
         document.getElementById("msg").innerText = response.status + " : " + response.message;
+
         console.log(response.status + " : " + response.message);
       }
     };
@@ -50,9 +52,12 @@ var login = function () {
       if(xhr.status == "200") {
         document.getElementById("msg").innerText = "로그아웃 하였습니다.";
 
+        layout.showLogoutMsg();
+
       } else {
         response = JSON.parse(xhr.response);
         document.getElementById("msg").innerText = response.status + " : " + response.message;
+
         console.log(response.status + " : " + response.message);
       }
     };

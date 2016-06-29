@@ -77,10 +77,22 @@ var layout = function() {
     }
   };
 
+  var showLogoutMsg = function() {
+    var loginMsg = document.getElementById("loginMsg");
+    loginMsg.innerText = "login ";
+  };
+
   return {
     showHeader : function() {
       showHeader(bindHeader);
-      showLoginMsgFromSession();  //TODO: 페이지 조회시마다 통신문제
+    },
+
+    showLoginMsgFromSession: function() {
+      showLoginMsgFromSession();    //TODO: 페이지 조회시마다 통신문제
+    },
+
+    showLogoutMsg : function () {
+      showLogoutMsg();
     },
 
     showNav : function() {
@@ -94,5 +106,6 @@ var layout = function() {
 }();
 
 layout.showHeader();
+layout.showLoginMsgFromSession();
 layout.showNav();
 layout.showLoginContents(login.bind);
